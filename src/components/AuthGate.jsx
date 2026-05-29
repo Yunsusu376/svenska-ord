@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 export default function AuthGate({ children }) {
   const { user, loading } = useAuth();
-  const [mode, setMode]       = useState('magic'); // 'magic' | 'password' | 'signup'
+  const [mode, setMode]       = useState('password'); // 'password' | 'signup'
   const [email, setEmail]     = useState('');
   const [password, setPassword] = useState('');
   const [sent, setSent]       = useState(false);
@@ -13,18 +13,6 @@ export default function AuthGate({ children }) {
 
   if (loading) return <div className="auth-loading">Loading…</div>;
   if (user) return children;
-
-  async function handleMagicLink(e) {
-    e.preventDefault();
-    setBusy(true); setError('');
-    const { error } = await supabase.auth.signInWithOtp({
-      email: email.trim(),
-      options: { emailRedirectTo: window.location.origin },
-    });
-    setBusy(false);
-    if (error) setError(error.message);
-    else setSent(true);
-  }
 
   async function handlePassword(e) {
     e.preventDefault();
@@ -62,13 +50,9 @@ export default function AuthGate({ children }) {
 
         <div className="auth-tabs">
           <button
-            className={`auth-tab ${mode === 'magic' ? 'active' : ''}`}
-            onClick={() => switchMode('magic')}
-          >Magic link</button>
-          <button
             className={`auth-tab ${mode === 'password' ? 'active' : ''}`}
             onClick={() => switchMode('password')}
-          >Password</button>
+          >Sign in</button>
           <button
             className={`auth-tab ${mode === 'signup' ? 'active' : ''}`}
             onClick={() => switchMode('signup')}
@@ -77,24 +61,11 @@ export default function AuthGate({ children }) {
 
         {sent ? (
           <div className="auth-sent">
-            {mode === 'signup'
-              ? <p>✉️ Check your email to confirm your account, then sign in with your password.</p>
-              : <p>✉️ Check your email — we sent a magic link to <strong>{email}</strong>.</p>
-            }
+            <p>✉️ Check your email to confirm your account, then sign in with your password.</p>
             <button className="auth-back" onClick={() => { setSent(false); switchMode('password'); }}>
               Back to sign in
             </button>
           </div>
-        ) : mode === 'magic' ? (
-          <form className="auth-form" onSubmit={handleMagicLink}>
-            <input type="email" className="auth-input" value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="your@email.com" required autoFocus />
-            <button className="auth-btn" type="submit" disabled={busy}>
-              {busy ? 'Sending…' : 'Send magic link'}
-            </button>
-            {error && <p className="auth-error">{error}</p>}
-          </form>
         ) : mode === 'password' ? (
           <form className="auth-form" onSubmit={handlePassword}>
             <input type="email" className="auth-input" value={email}
