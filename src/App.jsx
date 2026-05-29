@@ -54,7 +54,7 @@ export default function App() {
         </main>
         <footer className="app-footer">
           <span>🐾 Made by YUN</span>
-          <span className="footer-sources">词典来源：<a href="https://lexin.nada.kth.se/lexin/" target="_blank" rel="noopener noreferrer">Lexin (KTH)</a> · <a href="https://en.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary</a></span>
+          <span className="footer-sources">Dictionary sources: <a href="https://lexin.nada.kth.se/lexin/" target="_blank" rel="noopener noreferrer">Lexin (KTH)</a> · <a href="https://en.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary</a></span>
         </footer>
       </div>
     </AuthGate>
