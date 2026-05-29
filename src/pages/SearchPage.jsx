@@ -87,9 +87,16 @@ export default function SearchPage() {
               {result.inflections?.length > 0 && (
                 <span className="inflections">〈{result.inflections.join(', ')}〉</span>
               )}
-              <span className={`source-badge source-${result.source}`}>
-                {result.source === 'lexin' ? 'Lexin' : 'Wiktionary'}
-              </span>
+              <a
+                className={`source-badge source-${result.source}`}
+                href={result.source === 'lexin'
+                  ? `https://lexin.nada.kth.se/lexin/#searchinfo=search,swe_swe,${encodeURIComponent(result.word)}`
+                  : `https://en.wiktionary.org/wiki/${encodeURIComponent(result.word)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {result.source === 'lexin' ? 'Lexin ↗' : 'Wiktionary ↗'}
+              </a>
             </div>
           </div>
 

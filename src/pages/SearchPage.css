@@ -136,6 +136,8 @@
 }
 
 .source-badge {
+  text-decoration: none;
+  cursor: pointer;
   font-size: 10px;
   font-weight: 600;
   padding: 2px 8px;
