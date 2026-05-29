@@ -16,7 +16,7 @@
   padding: 12px 16px;
   border: 1.5px solid var(--border);
   border-radius: 12px;
-  font-size: 15px;
+  font-size: 16px; /* prevents iOS auto-zoom on focus */
   font-family: var(--font-serif);
   outline: none;
   background: var(--card);
