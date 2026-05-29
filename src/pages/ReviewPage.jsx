@@ -52,7 +52,7 @@ export default function ReviewPage({ onGoBank }) {
 
       {queue.length === 0 ? (
         <div className="review-empty">
-          <img src="/stickers/09.png" className="empty-img" alt="" />
+          <img src="/stickers/daffodil-06.png" className="empty-img" alt="" />
           <h3>No words due today</h3>
           <p>Go to Lookup to add new words</p>
           <div className="interval-chips">
