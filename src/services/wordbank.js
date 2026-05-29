@@ -12,9 +12,15 @@ function addDays(dateStr, n) {
   return d.toISOString().slice(0, 10);
 }
 
+async function getUserId() {
+  const { data } = await supabase.auth.getUser();
+  return data?.user?.id;
+}
+
 function toRow(entry) {
   return {
     id:              entry.id,
+    user_id:         entry.userId,
     word:            entry.word,
     source:          entry.source,
     phonetic:        entry.phonetic || '',
@@ -79,8 +85,10 @@ export async function addWord(wordData) {
   if (existing) return existing;
 
   const today = todayStr();
+  const userId = await getUserId();
   const entry = {
     id: Date.now().toString(),
+    userId,
     word:         wordData.word,
     source:       wordData.source,
     phonetic:     wordData.phonetic || '',
