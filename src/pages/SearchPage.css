@@ -298,33 +298,38 @@
 
 .petal {
   position: absolute;
-  font-size: 16px;
+  font-size: 15px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation: petalFloat 3s ease-out infinite;
   opacity: 0;
   pointer-events: none;
 }
 
-@keyframes petalFloat {
-  0%   { transform: translate(-50%, -50%) translate(0, 0) scale(0.4); opacity: 0; }
-  15%  { opacity: 0.9; }
-  100% { transform: translate(-50%, -50%) var(--tx, 40px) var(--ty, -40px) scale(1); opacity: 0; }
-}
+@keyframes p0  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 50px), calc(-50% - 30px)) scale(1); opacity:0; } }
+@keyframes p1  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 50px), calc(-50% - 30px)) scale(1); opacity:0; } }
+@keyframes p2  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 55px), calc(-50% + 10px)) scale(1); opacity:0; } }
+@keyframes p3  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 55px), calc(-50% + 10px)) scale(1); opacity:0; } }
+@keyframes p4  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 20px), calc(-50% - 55px)) scale(1); opacity:0; } }
+@keyframes p5  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 20px), calc(-50% - 55px)) scale(1); opacity:0; } }
+@keyframes p6  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 45px), calc(-50% - 45px)) scale(1); opacity:0; } }
+@keyframes p7  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 45px), calc(-50% - 45px)) scale(1); opacity:0; } }
+@keyframes p8  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 30px), calc(-50% + 50px)) scale(1); opacity:0; } }
+@keyframes p9  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 30px), calc(-50% + 50px)) scale(1); opacity:0; } }
+@keyframes p10 { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 55px), calc(-50% - 15px)) scale(1); opacity:0; } }
+@keyframes p11 { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 55px), calc(-50% - 15px)) scale(1); opacity:0; } }
 
-.petal-0  { --tx: translateX(40px);  --ty: translateY(-30px); animation-delay: 0s;    animation-duration: 2.8s; }
-.petal-1  { --tx: translateX(-40px); --ty: translateY(-30px); animation-delay: 0.3s;  animation-duration: 3.1s; }
-.petal-2  { --tx: translateX(50px);  --ty: translateY(10px);  animation-delay: 0.6s;  animation-duration: 2.6s; }
-.petal-3  { --tx: translateX(-50px); --ty: translateY(10px);  animation-delay: 0.9s;  animation-duration: 3.3s; }
-.petal-4  { --tx: translateX(20px);  --ty: translateY(-50px); animation-delay: 1.2s;  animation-duration: 2.9s; }
-.petal-5  { --tx: translateX(-20px); --ty: translateY(-50px); animation-delay: 1.5s;  animation-duration: 2.7s; }
-.petal-6  { --tx: translateX(45px);  --ty: translateY(-45px); animation-delay: 0.15s; animation-duration: 3.0s; }
-.petal-7  { --tx: translateX(-45px); --ty: translateY(-45px); animation-delay: 0.45s; animation-duration: 2.5s; }
-.petal-8  { --tx: translateX(30px);  --ty: translateY(45px);  animation-delay: 0.75s; animation-duration: 3.2s; }
-.petal-9  { --tx: translateX(-30px); --ty: translateY(45px);  animation-delay: 1.05s; animation-duration: 2.8s; }
-.petal-10 { --tx: translateX(55px);  --ty: translateY(-15px); animation-delay: 1.35s; animation-duration: 3.1s; }
-.petal-11 { --tx: translateX(-55px); --ty: translateY(-15px); animation-delay: 1.65s; animation-duration: 2.9s; }
+.petal-0  { animation: p0  2.8s ease-out infinite; animation-delay: 0s;    }
+.petal-1  { animation: p1  3.1s ease-out infinite; animation-delay: 0.3s;  }
+.petal-2  { animation: p2  2.6s ease-out infinite; animation-delay: 0.6s;  }
+.petal-3  { animation: p3  3.3s ease-out infinite; animation-delay: 0.9s;  }
+.petal-4  { animation: p4  2.9s ease-out infinite; animation-delay: 1.2s;  }
+.petal-5  { animation: p5  2.7s ease-out infinite; animation-delay: 1.5s;  }
+.petal-6  { animation: p6  3.0s ease-out infinite; animation-delay: 0.15s; }
+.petal-7  { animation: p7  2.5s ease-out infinite; animation-delay: 0.45s; }
+.petal-8  { animation: p8  3.2s ease-out infinite; animation-delay: 0.75s; }
+.petal-9  { animation: p9  2.8s ease-out infinite; animation-delay: 1.05s; }
+.petal-10 { animation: p10 3.1s ease-out infinite; animation-delay: 1.35s; }
+.petal-11 { animation: p11 2.9s ease-out infinite; animation-delay: 1.65s; }
 
 .search-hint h3 { font-size: 17px; color: var(--text-dark); font-family: var(--font-serif); }
 .search-hint p  { font-size: 14px; color: var(--text-mid); }
