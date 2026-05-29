@@ -159,6 +159,10 @@ body {
 .signout-btn:hover { background: rgba(255,255,255,0.15); }
 
 .app-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   text-align: center;
   padding: .75rem;
   font-size: 12px;
@@ -166,3 +170,8 @@ body {
   letter-spacing: .5px;
   opacity: .6;
 }
+.footer-sources a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+.footer-sources a:hover { text-decoration: underline; }

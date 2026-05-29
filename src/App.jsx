@@ -52,7 +52,10 @@ export default function App() {
           {tab === 'bank'   && <WordBankPage onGoReview={goReview} initialDate={bankDate} />}
           {tab === 'review' && <ReviewPage  onGoBank={goBank} />}
         </main>
-        <footer className="app-footer">🐾 Made by YUN</footer>
+        <footer className="app-footer">
+          <span>🐾 Made by YUN</span>
+          <span className="footer-sources">词典来源：<a href="https://lexin.nada.kth.se/lexin/" target="_blank" rel="noopener noreferrer">Lexin (KTH)</a> · <a href="https://en.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary</a></span>
+        </footer>
       </div>
     </AuthGate>
   );
