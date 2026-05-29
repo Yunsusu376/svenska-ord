@@ -149,14 +149,6 @@ body {
   padding: .5rem 1rem; cursor: pointer; color: var(--text-muted); font-size: .85rem;
 }
 
-/* ── Sound toggle ── */
-.sound-toggle {
-  background: none; border: 1px solid rgba(255,255,255,0.45); border-radius: 6px;
-  font-size: 1rem; padding: .2rem .5rem; cursor: pointer; margin-left: 6px;
-  transition: background .15s; line-height: 1;
-}
-.sound-toggle:hover { background: rgba(255,255,255,0.15); }
-
 /* ── Sign-out button in header ── */
 .signout-btn {
   background: none; border: 1px solid rgba(255,255,255,0.45); border-radius: 6px;
