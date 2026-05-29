@@ -113,7 +113,19 @@ body {
 }
 
 .auth-card h2 { margin: 0 0 .25rem; font-size: 1.6rem; color: var(--primary-dark); }
-.auth-sub { color: var(--text-muted); font-size: .9rem; margin: 0 0 1.75rem; }
+.auth-sub { color: var(--text-muted); font-size: .9rem; margin: 0 0 1.25rem; }
+
+.auth-tabs {
+  display: flex; gap: .5rem; margin-bottom: 1.25rem;
+}
+.auth-tab {
+  flex: 1; padding: .45rem; border: 1.5px solid var(--border); border-radius: 8px;
+  background: none; font-size: .85rem; cursor: pointer; color: var(--text-mid);
+  transition: all .15s;
+}
+.auth-tab.active {
+  background: var(--primary); color: #fff; border-color: var(--primary);
+}
 
 .auth-form { display: flex; flex-direction: column; gap: .75rem; }
 .auth-input {
