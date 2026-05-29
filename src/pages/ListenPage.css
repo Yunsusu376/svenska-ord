@@ -1,0 +1,302 @@
+.listen-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+/* ── Listen tabs ── */
+.listen-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1.5px solid var(--border);
+  background: var(--card);
+  padding: 0 16px;
+}
+
+.listen-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px 12px;
+  background: none;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1.5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.listen-tab:hover { color: var(--text-mid); }
+.listen-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+.tab-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: grayscale(0.4) opacity(0.7);
+  transition: filter 0.2s;
+}
+.listen-tab.active .tab-icon { filter: grayscale(0) opacity(1); }
+
+/* ── Tab content ── */
+.tab-content {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Level filter ── */
+.level-filter {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.level-chip {
+  padding: 5px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.15s;
+}
+.level-chip:hover { border-color: var(--primary); color: var(--primary); }
+.level-chip.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* ── Video grid ── */
+.videos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.video-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(80,120,100,0.06);
+  transition: box-shadow 0.15s;
+}
+.video-card:hover { box-shadow: 0 4px 18px rgba(80,120,100,0.1); }
+
+.video-embed-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: #f0f0ec;
+}
+
+.video-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-blocked {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--bg-tint);
+}
+.video-blocked p { font-size: 13px; color: var(--text-light); font-family: var(--font-sans); }
+.yt-link {
+  background: #ff0000;
+  color: white;
+  padding: 7px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+}
+
+.video-info {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.video-level {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  letter-spacing: 0.5px;
+}
+
+.video-channel {
+  font-size: 11px;
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.video-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-family: var(--font-serif);
+  line-height: 1.4;
+}
+
+.video-desc {
+  font-size: 13px;
+  color: var(--text-mid);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+.yt-note {
+  font-size: 12px;
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  text-align: center;
+}
+.yt-note a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.yt-note a:hover { text-decoration: underline; }
+
+/* ── Word audio tab ── */
+.words-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 50px 20px;
+  text-align: center;
+  color: var(--text-mid);
+  font-size: 14px;
+  font-family: var(--font-sans);
+}
+.words-empty .empty-img {
+  width: 90px; height: 90px;
+  object-fit: contain;
+  opacity: 0.7;
+  filter: drop-shadow(0 3px 8px rgba(80,120,100,0.1));
+  margin-bottom: 6px;
+}
+.words-empty strong { color: var(--primary); }
+
+.word-audio-layout {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+/* Word picker sidebar */
+.word-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 90px;
+  max-width: 110px;
+  position: sticky;
+  top: 52px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.picker-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  padding: 0 2px 4px;
+}
+
+.picker-word {
+  padding: 7px 10px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-mid);
+  cursor: pointer;
+  font-family: var(--font-serif);
+  text-align: left;
+  transition: all 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.picker-word:hover { border-color: var(--primary); color: var(--primary-dark); }
+.picker-word.active {
+  background: var(--primary-pale);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+/* Clips panel */
+.clips-panel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.clips-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 14px;
+  font-family: var(--font-sans);
+}
+.placeholder-img {
+  width: 80px; height: 80px;
+  object-fit: contain;
+  opacity: 0.5;
+  filter: grayscale(0.3);
+}
+
+.clips-word-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.clips-word-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-family: var(--font-serif);
+}
+.clips-source {
+  font-size: 11px;
+  color: var(--text-light);
+  font-family: var(--font-sans);
+}

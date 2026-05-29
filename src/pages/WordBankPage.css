@@ -1,0 +1,257 @@
+.bank-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 12px 60px;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.due-banner {
+  background: var(--primary);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  transition: opacity 0.2s;
+}
+.due-banner:hover { opacity: 0.92; }
+.go-review { font-weight: 700; font-size: 13px; }
+
+.bank-layout { display: flex; gap: 10px; align-items: flex-start; }
+
+/* Date sidebar */
+.date-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 76px;
+  position: sticky;
+  top: 52px;
+}
+
+.date-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 7px 10px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  color: var(--text-mid);
+  transition: all 0.15s;
+  position: relative;
+}
+.date-btn:hover { border-color: var(--primary); }
+.date-btn.active {
+  background: var(--primary-pale);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+.date-label { font-size: 12px; font-weight: 600; }
+.date-count { font-size: 10px; color: var(--text-light); font-weight: 600; }
+.date-btn.active .date-count { color: var(--primary); }
+
+.today-dot {
+  position: absolute;
+  top: 7px; right: 8px;
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* Word list */
+.word-list { flex: 1; display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  padding: 0 2px;
+}
+.clear-filter {
+  background: none; border: none;
+  font-size: 12px; color: var(--text-light);
+  cursor: pointer; font-family: var(--font-sans);
+  transition: color 0.15s;
+}
+.clear-filter:hover { color: var(--primary); }
+
+.bank-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 20px;
+  color: var(--text-light);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  text-align: center;
+}
+.bank-empty-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.6;
+  filter: drop-shadow(0 2px 6px rgba(80,120,100,0.1));
+}
+
+.word-item {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 13px;
+  overflow: hidden;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.word-item:hover { border-color: #c8d8d0; box-shadow: 0 3px 12px rgba(80,120,100,0.08); }
+
+.word-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.word-sv {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+  min-width: 76px;
+  font-family: var(--font-serif);
+}
+
+.word-def-short {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-mid);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.review-dots { display: flex; gap: 4px; flex-shrink: 0; }
+.dot { width: 7px; height: 7px; border-radius: 50%; }
+.dot-pending { background: #d8e4e0; }
+.dot-due     { background: var(--accent); }
+.dot-ok      { background: #6aad86; }
+.dot-fail    { background: #e07878; }
+
+.note-indicator { font-size: 13px; flex-shrink: 0; }
+
+.remove-btn {
+  background: none; border: none;
+  color: #c8d4d0; font-size: 16px;
+  cursor: pointer; padding: 0 2px;
+  flex-shrink: 0; line-height: 1;
+  transition: color 0.15s;
+}
+.remove-btn:hover { color: #e07878; }
+
+/* Expanded */
+.word-expand {
+  padding: 0 14px 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.18s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.expand-pos {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 9px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-pale);
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  font-family: var(--font-sans);
+}
+
+.expand-infl {
+  font-size: 12px;
+  color: var(--text-light);
+  font-style: italic;
+  font-family: var(--font-serif);
+  margin-left: 4px;
+}
+
+.expand-def-sv {
+  font-size: 13px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-family: var(--font-serif);
+}
+
+.expand-def-en {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.55;
+  padding-left: 9px;
+  border-left: 2px solid #c8e0d4;
+  font-family: var(--font-sans);
+}
+
+.expand-example {
+  background: var(--bg-tint);
+  border-radius: 8px;
+  padding: 8px 11px;
+  border-left: 3px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.expand-ex-sv { font-size: 12px; color: var(--text-dark); font-style: italic; font-family: var(--font-serif); }
+.expand-ex-en { font-size: 11px; color: var(--text-mid); font-family: var(--font-sans); }
+
+.expand-note { margin-top: 2px; }
+
+/* Review schedule */
+.review-schedule {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-top: 2px;
+}
+
+.sched-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 9px;
+  gap: 1px;
+  min-width: 48px;
+  border: 1px solid transparent;
+}
+.sched-future { background: var(--bg-tint); border-color: var(--border); }
+.sched-due    { background: var(--accent-pale); border-color: #e8d0a0; }
+.sched-ok     { background: #edf6f1; border-color: #b8d8c4; }
+.sched-fail   { background: #fdf0ee; border-color: #f0d0cc; }
+
+.sched-n    { font-size: 10px; font-weight: 700; color: var(--text-mid); font-family: var(--font-sans); }
+.sched-date { font-size: 9px; color: var(--text-light); font-family: var(--font-sans); }
+.sched-status { font-size: 10px; font-weight: 600; font-family: var(--font-sans); }
+.sched-ok  .sched-status { color: #2e6644; }
+.sched-fail .sched-status { color: #944040; }
+.sched-due  .sched-status { color: var(--accent-dark); }

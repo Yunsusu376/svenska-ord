@@ -1,0 +1,156 @@
+:root {
+  /* Fresh, light palette */
+  --bg:           #f4f6f3;
+  --bg-tint:      #edf2ee;
+  --card:         #ffffff;
+  --border:       #dde8e2;
+
+  /* Primary — soft sage green */
+  --primary:      #5a8c78;
+  --primary-dark: #3f6b59;
+  --primary-pale: #eaf4f0;
+
+  /* Accent — warm honey/straw */
+  --accent:       #c9973a;
+  --accent-dark:  #a07228;
+  --accent-pale:  #faf4e4;
+
+  /* Soft blue */
+  --blue:         #6690b8;
+  --blue-pale:    #eef3f9;
+
+  /* Text */
+  --text-dark:    #2c3a38;
+  --text-mid:     #6b7c78;
+  --text-light:   #aabbb6;
+
+  /* Typography */
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.app-header {
+  background: var(--card);
+  border-bottom: 1.5px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 12px;
+}
+
+.header-text h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-family: var(--font-serif);
+  letter-spacing: 0.2px;
+}
+
+.header-text .tagline {
+  font-size: 11px;
+  color: var(--text-light);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+  font-family: var(--font-sans);
+}
+
+.header-deco {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.header-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(80,120,100,0.15));
+  opacity: 0.9;
+}
+
+.app-main { flex: 1; display: flex; flex-direction: column; }
+
+
+/* ── Auth gate ── */
+.auth-loading {
+  display: flex; align-items: center; justify-content: center;
+  height: 100vh; font-size: 1rem; color: var(--text-muted);
+}
+
+.auth-gate {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: var(--bg); padding: 1.5rem;
+}
+
+.auth-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 2.5rem 2rem; max-width: 360px; width: 100%;
+  box-shadow: 0 4px 24px rgba(80,120,100,0.10);
+  text-align: center;
+}
+
+.auth-card h2 { margin: 0 0 .25rem; font-size: 1.6rem; color: var(--primary-dark); }
+.auth-sub { color: var(--text-muted); font-size: .9rem; margin: 0 0 1.75rem; }
+
+.auth-form { display: flex; flex-direction: column; gap: .75rem; }
+.auth-input {
+  padding: .7rem 1rem; border: 1.5px solid var(--border); border-radius: 8px;
+  font-size: 1rem; background: var(--bg); color: var(--text);
+  outline: none; transition: border-color .15s;
+}
+.auth-input:focus { border-color: var(--primary); }
+.auth-btn {
+  padding: .75rem; background: var(--primary); color: #fff; border: none;
+  border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;
+  transition: background .15s;
+}
+.auth-btn:hover:not(:disabled) { background: var(--primary-dark); }
+.auth-btn:disabled { opacity: .6; cursor: default; }
+.auth-error { color: #c0392b; font-size: .85rem; margin: 0; }
+
+.auth-sent p { color: var(--text); font-size: .95rem; margin-bottom: 1rem; }
+.auth-back {
+  background: none; border: 1px solid var(--border); border-radius: 8px;
+  padding: .5rem 1rem; cursor: pointer; color: var(--text-muted); font-size: .85rem;
+}
+
+/* ── Sign-out button in header ── */
+.signout-btn {
+  background: none; border: 1px solid rgba(255,255,255,0.45); border-radius: 6px;
+  color: rgba(255,255,255,0.85); font-size: .78rem; padding: .3rem .7rem;
+  cursor: pointer; margin-left: 6px; white-space: nowrap;
+  transition: background .15s;
+}
+.signout-btn:hover { background: rgba(255,255,255,0.15); }
+
+.app-footer {
+  text-align: center;
+  padding: .75rem;
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: .5px;
+  opacity: .6;
+}

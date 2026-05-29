@@ -1,0 +1,121 @@
+.word-calendar {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  width: 100%;
+  box-shadow: 0 2px 12px rgba(80,120,100,0.06);
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.cal-nav {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  color: var(--text-mid);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+  line-height: 1;
+  font-family: inherit;
+}
+.cal-nav:hover { background: var(--bg-tint); border-color: var(--primary); color: var(--primary); }
+
+.cal-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-family: -apple-system, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 6px;
+}
+.cal-wd {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 600;
+  font-family: -apple-system, sans-serif;
+  padding: 2px 0;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.cal-cell {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: default;
+  transition: background 0.15s;
+  gap: 1px;
+  min-height: 36px;
+}
+
+.cal-cell.has-words {
+  cursor: pointer;
+  background: var(--bg-tint);
+}
+.cal-cell.has-words:hover {
+  background: var(--primary-pale);
+}
+
+.cal-cell.today .cal-day-num {
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-day-num {
+  font-size: 12px;
+  color: var(--text-mid);
+  font-family: -apple-system, sans-serif;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.cal-cell.has-words .cal-day-num { color: var(--text-dark); font-weight: 700; }
+
+.cal-dot {
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.cal-count {
+  font-size: 9px;
+  color: var(--primary);
+  font-weight: 700;
+  font-family: -apple-system, sans-serif;
+  line-height: 1;
+}
+
+.cal-cell.empty { pointer-events: none; }
