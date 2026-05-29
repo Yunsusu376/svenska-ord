@@ -299,24 +299,25 @@
 .petal {
   position: absolute;
   font-size: 15px;
-  top: 50%;
-  left: 50%;
+  top: 52px;
+  left: 52px;
   opacity: 0;
   pointer-events: none;
+  transform-origin: center;
 }
 
-@keyframes p0  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 50px), calc(-50% - 30px)) scale(1); opacity:0; } }
-@keyframes p1  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 50px), calc(-50% - 30px)) scale(1); opacity:0; } }
-@keyframes p2  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 55px), calc(-50% + 10px)) scale(1); opacity:0; } }
-@keyframes p3  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 55px), calc(-50% + 10px)) scale(1); opacity:0; } }
-@keyframes p4  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 20px), calc(-50% - 55px)) scale(1); opacity:0; } }
-@keyframes p5  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 20px), calc(-50% - 55px)) scale(1); opacity:0; } }
-@keyframes p6  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 45px), calc(-50% - 45px)) scale(1); opacity:0; } }
-@keyframes p7  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 45px), calc(-50% - 45px)) scale(1); opacity:0; } }
-@keyframes p8  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 30px), calc(-50% + 50px)) scale(1); opacity:0; } }
-@keyframes p9  { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 30px), calc(-50% + 50px)) scale(1); opacity:0; } }
-@keyframes p10 { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% + 55px), calc(-50% - 15px)) scale(1); opacity:0; } }
-@keyframes p11 { 0% { transform: translate(-50%,-50%) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(calc(-50% - 55px), calc(-50% - 15px)) scale(1); opacity:0; } }
+@keyframes p0  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(50px,-30px) scale(1); opacity:0; } }
+@keyframes p1  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(-50px,-30px) scale(1); opacity:0; } }
+@keyframes p2  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(55px,10px) scale(1); opacity:0; } }
+@keyframes p3  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(-55px,10px) scale(1); opacity:0; } }
+@keyframes p4  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(20px,-55px) scale(1); opacity:0; } }
+@keyframes p5  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(-20px,-55px) scale(1); opacity:0; } }
+@keyframes p6  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(45px,-45px) scale(1); opacity:0; } }
+@keyframes p7  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(-45px,-45px) scale(1); opacity:0; } }
+@keyframes p8  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(30px,50px) scale(1); opacity:0; } }
+@keyframes p9  { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(-30px,50px) scale(1); opacity:0; } }
+@keyframes p10 { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(55px,-15px) scale(1); opacity:0; } }
+@keyframes p11 { 0% { transform: translate(0,0) scale(0.3); opacity:0; } 15% { opacity:0.9; } 100% { transform: translate(-55px,-15px) scale(1); opacity:0; } }
 
 .petal-0  { animation: p0  2.8s ease-out infinite; animation-delay: 0s;    }
 .petal-1  { animation: p1  3.1s ease-out infinite; animation-delay: 0.3s;  }
