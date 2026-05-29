@@ -184,7 +184,12 @@ export default function SearchPage() {
 
       {!result && !loading && !error && (
         <div className="search-hint">
-          <img src="/stickers/07.png" className="hint-illustration" alt="" />
+          <div className="hint-illustration-wrap">
+            <img src="/stickers/07.png" className="hint-illustration" alt="" />
+            {[...Array(12)].map((_, i) => (
+              <span key={i} className={`petal petal-${i}`}>🌻</span>
+            ))}
+          </div>
           <h3>Find every word in the book</h3>
           <p>Look up Swedish words — definitions, pronunciation & examples</p>
           <p className="hint-sub">Lexin (KTH) · Wiktionary · Auto English translation</p>
