@@ -24,7 +24,7 @@ export default function WordCalendar({ onSelectDate }) {
     return { year: d.getFullYear(), month: d.getMonth() };
   });
 
-  const monthLabel = new Date(year, month, 1).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long' });
+  const monthLabel = new Date(year, month, 1).toLocaleDateString('sv-SE', { year: 'numeric', month: 'long' });
   const blanks = Array(firstDay).fill(null);
   const days   = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
@@ -44,7 +44,7 @@ export default function WordCalendar({ onSelectDate }) {
       </div>
 
       <div className="cal-weekdays">
-        {['日','一','二','三','四','五','六'].map(d => (
+        {['Sön','Mån','Tis','Ons','Tor','Fre','Lör'].map(d => (
           <span key={d} className="cal-wd">{d}</span>
         ))}
       </div>
