@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { lookupWord } from '../services/dictionary';
 import { addWord, checkWordExists } from '../services/wordbank';
 import NoteEditor from '../components/NoteEditor';
@@ -17,6 +17,7 @@ export default function SearchPage() {
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState('');
   const [bankEntry, setBankEntry] = useState(null); // existing or just-added entry
+  const audioRef = useRef(null);
 
   // When a new result loads, check if it's already in the bank
   useEffect(() => {
@@ -35,6 +36,13 @@ export default function SearchPage() {
     e.preventDefault();
     const q = query.trim();
     if (q) doSearch(q);
+  }
+
+  function playAudio() {
+    if (result?.audioUrl && audioRef.current) {
+      audioRef.current.src = result.audioUrl;
+      audioRef.current.play().catch(() => {});
+    }
   }
 
   async function handleAdd() {
@@ -69,6 +77,9 @@ export default function SearchPage() {
             <div className="result-word-row">
               <h2 className="result-word">{result.word}</h2>
               {result.phonetic && <span className="result-phonetic">[{result.phonetic}]</span>}
+              {result.audioUrl && (
+                <button className="audio-btn" onClick={playAudio} title="Play pronunciation">🔊</button>
+              )}
             </div>
             {result.wordEn && <span className="result-word-en">{result.wordEn}</span>}
             <div className="result-meta-row">
@@ -174,6 +185,7 @@ export default function SearchPage() {
             </details>
           )}
 
+          <audio ref={audioRef} style={{ display: 'none' }} />
         </div>
       )}
 

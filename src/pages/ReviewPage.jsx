@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getDueWords, markReview, todayStr } from '../services/wordbank';
 import WordCalendar from '../components/WordCalendar';
 import './ReviewPage.css';
@@ -10,6 +10,15 @@ export default function ReviewPage({ onGoBank }) {
   const [done, setDone]         = useState(false);
   const [session, setSession]   = useState({ remembered: 0, forgotten: 0 });
   const [showCal, setShowCal]   = useState(false);
+  const audioRef = useRef(null);
+
+  function playAudio(url) {
+    if (url && audioRef.current) {
+      audioRef.current.src = url;
+      audioRef.current.play().catch(() => {});
+    }
+  }
+
   async function loadQueue() {
     const due = await getDueWords();
     setQueue(due); setIndex(0);
@@ -88,6 +97,9 @@ export default function ReviewPage({ onGoBank }) {
           <div className="review-card">
             <div className="rv-word-row">
               <span className="rv-word">{current.word}</span>
+              {current.audioUrl && (
+                <button className="rv-audio" onClick={() => playAudio(current.audioUrl)}>🔊</button>
+              )}
             </div>
             {current.phonetic && <span className="rv-phonetic">[{current.phonetic}]</span>}
             {current.inflections?.length > 0 && (
@@ -131,6 +143,7 @@ export default function ReviewPage({ onGoBank }) {
         </>
       )}
 
+      <audio ref={audioRef} style={{ display: 'none' }} />
     </div>
   );
 }
